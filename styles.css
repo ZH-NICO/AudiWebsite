@@ -905,6 +905,18 @@ details p { padding:0 0 1.4rem; font-size:.88rem; color:var(--text-muted); line-
 .car-slideshow img:nth-child(2) { animation-delay:5s; }
 .car-slideshow img:nth-child(3) { animation-delay:10s; }
 
+.car-slideshow.single-slide img {
+  opacity:1;
+  transform:scale(1.015);
+  animation:premiumFloat 7s ease-in-out infinite alternate;
+}
+
+.car-slideshow.two-slide img { animation:carSlideTwo 10s infinite, premiumFloat 7s ease-in-out infinite alternate; }
+.car-slideshow.two-slide img:nth-child(1) { animation-delay:0s; }
+.car-slideshow.two-slide img:nth-child(2) { animation-delay:5s; }
+.car-slideshow.two-slide + .slide-dots span:nth-child(3) { display:none; }
+.car-slideshow.single-slide + .slide-dots { display:none; }
+
 .car-slideshow::after {
   content:'';
   position:absolute;
@@ -944,11 +956,20 @@ details p { padding:0 0 1.4rem; font-size:.88rem; color:var(--text-muted); line-
 .slide-dots span:nth-child(1)::after { animation-delay:0s; }
 .slide-dots span:nth-child(2)::after { animation-delay:5s; }
 .slide-dots span:nth-child(3)::after { animation-delay:10s; }
+.car-slideshow.two-slide + .slide-dots span::after { animation:dotFillTwo 10s infinite; }
+.car-slideshow.two-slide + .slide-dots span:nth-child(1)::after { animation-delay:0s; }
+.car-slideshow.two-slide + .slide-dots span:nth-child(2)::after { animation-delay:5s; }
 
 @keyframes carSlide {
   0% { opacity:0; transform:scale(1.06) translateX(1.5%); filter:saturate(1.08) contrast(1.06) brightness(.9); }
   4%, 30% { opacity:1; transform:scale(1.015) translateX(0); filter:saturate(1.13) contrast(1.08) brightness(1); }
   34%, 100% { opacity:0; transform:scale(1.035) translateX(-1.5%); filter:saturate(1.02) contrast(1.02) brightness(.9); }
+}
+
+@keyframes carSlideTwo {
+  0% { opacity:0; transform:scale(1.06) translateX(1.5%); filter:saturate(1.08) contrast(1.06) brightness(.9); }
+  5%, 45% { opacity:1; transform:scale(1.015) translateX(0); filter:saturate(1.13) contrast(1.08) brightness(1); }
+  50%, 100% { opacity:0; transform:scale(1.035) translateX(-1.5%); filter:saturate(1.02) contrast(1.02) brightness(.9); }
 }
 
 @keyframes premiumFloat {
@@ -965,6 +986,12 @@ details p { padding:0 0 1.4rem; font-size:.88rem; color:var(--text-muted); line-
   0% { transform:scaleX(0); }
   30% { transform:scaleX(1); }
   34%, 100% { transform:scaleX(0); }
+}
+
+@keyframes dotFillTwo {
+  0% { transform:scaleX(0); }
+  45% { transform:scaleX(1); }
+  50%, 100% { transform:scaleX(0); }
 }
 
 @media (prefers-reduced-motion:reduce) {

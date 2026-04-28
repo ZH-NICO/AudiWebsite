@@ -3,5 +3,6 @@ node_modules/
 .sisyphus/
 *.log
 *.tmp
+a7-*.png
 .DS_Store
 Thumbs.db
