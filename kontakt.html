@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt &amp; Service — Audi Motion Shop</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 16'%3E%3Cg fill='none' stroke='%23000' stroke-width='2'%3E%3Ccircle cx='8' cy='8' r='7'/%3E%3Ccircle cx='24' cy='8' r='7'/%3E%3Ccircle cx='40' cy='8' r='7'/%3E%3Ccircle cx='56' cy='8' r='7'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo" aria-label="Audi Startseite">
+      <img class="audi-logo-img" src="assets/images/audi-logo.svg" alt="Audi Logo">
+    </a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="produkte.html" class="nav-link">Fahrzeuge</a>
+      <a href="kontakt.html" class="nav-link">Service</a>
+    </nav>
+    <a href="kontakt.html" class="header-cta">Probefahrt</a>
+    <div class="account-menu">
+      <button type="button" class="profile-button" id="profile-button" aria-haspopup="dialog" aria-controls="account-panel">
+        <span class="profile-avatar" aria-hidden="true">👤</span>
+        <span class="profile-label">Profil</span>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="account-panel" id="account-panel" aria-hidden="true">
+    <div class="account-backdrop" data-account-close></div>
+    <aside class="account-drawer" role="dialog" aria-modal="true" aria-labelledby="account-title">
+      <button type="button" class="account-close" data-account-close aria-label="Profil schliessen">×</button>
+      <p class="eyebrow">Mein Audi Konto</p>
+      <h2 id="account-title">Profil &amp; Warenkorb</h2>
+      <div class="auth-message" id="auth-message" role="status" aria-live="polite"></div>
+
+      <section class="auth-forms" id="auth-forms">
+        <form class="auth-form" id="login-form">
+          <h3>Anmelden</h3>
+          <label for="login-email">E-Mail</label>
+          <input type="email" id="login-email" autocomplete="email" required>
+          <label for="login-password">Passwort</label>
+          <input type="password" id="login-password" autocomplete="current-password" minlength="6" required>
+          <button type="submit" class="btn btn-primary">Einloggen</button>
+        </form>
+
+        <form class="auth-form" id="register-form">
+          <h3>Konto erstellen</h3>
+          <label for="register-name">Name</label>
+          <input type="text" id="register-name" autocomplete="name" required>
+          <label for="register-email">E-Mail</label>
+          <input type="email" id="register-email" autocomplete="email" required>
+          <label for="register-password">Passwort</label>
+          <input type="password" id="register-password" autocomplete="new-password" minlength="6" required>
+          <button type="submit" class="btn btn-ghost">Registrieren</button>
+        </form>
+      </section>
+
+      <section class="account-state" id="account-state" hidden>
+        <div class="account-card">
+          <span>Angemeldet als</span>
+          <strong id="account-name">Gast</strong>
+          <small id="account-email"></small>
+        </div>
+        <button type="button" class="btn btn-ghost" id="logout-button">Abmelden</button>
+      </section>
+
+      <section class="cart-panel" aria-labelledby="cart-title">
+        <div class="cart-panel-head">
+          <h3 id="cart-title">Warenkorb</h3>
+          <button type="button" id="cart-clear" class="cart-clear">Leeren</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-total"><span>Total</span><strong id="cart-total">0 €</strong></div>
+      </section>
+
+      <p class="auth-note">Demo-Authentifizierung für diese statische Website: Konten, Session und Warenkorb werden lokal im Browser gespeichert.</p>
+    </aside>
+  </div>
+
+  <main>
+    <section class="page">
+      <div class="page-content">
+        <div class="page-header">
+          <p class="eyebrow">Service Center</p>
+          <h1>Wie können wir helfen?</h1>
+          <p class="page-lead">Alles rund um Kauf, Lieferung, Finanzierung und Garantie — klar und transparent erklärt.</p>
+        </div>
+
+        <section aria-labelledby="team-title">
+          <div class="page-header compact-header">
+            <p class="eyebrow">Audi Team</p>
+            <h2 id="team-title">Deine Ansprechpartner im Showroom</h2>
+          </div>
+          <div class="team-grid">
+            <article class="team-card">
+              <div class="team-avatar" aria-hidden="true">MB</div>
+              <h3>Max Berger</h3>
+              <p class="team-role">Geschäftsführung</p>
+              <p class="team-email">m.berger@audi-shop.de</p>
+            </article>
+            <article class="team-card">
+              <div class="team-avatar" aria-hidden="true">SW</div>
+              <h3>Sarah Weber</h3>
+              <p class="team-role">Verkaufsberatung</p>
+              <p class="team-email">s.weber@audi-shop.de</p>
+            </article>
+            <article class="team-card">
+              <div class="team-avatar" aria-hidden="true">LH</div>
+              <h3>Lukas Hoffmann</h3>
+              <p class="team-role">Finanzierung &amp; Leasing</p>
+              <p class="team-email">l.hoffmann@audi-shop.de</p>
+            </article>
+            <article class="team-card">
+              <div class="team-avatar" aria-hidden="true">AM</div>
+              <h3>Anna Meier</h3>
+              <p class="team-role">Kundenservice</p>
+              <p class="team-email">a.meier@audi-shop.de</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="support-lower contact-layout">
+          <div>
+            <div class="booking-wrap contact-form-wrap">
+              <div class="booking-intro">
+                <p class="eyebrow">Kontaktformular</p>
+                <h2>Nachricht an Audi Motion Shop</h2>
+                <p>Schreibe uns zu Bestellung, Probefahrt, Finanzierung oder Servicefall. Wir melden uns schnellstmöglich persönlich zurück.</p>
+              </div>
+              <form class="booking-form" action="#" method="post">
+                <div class="form-row">
+                  <div class="field">
+                    <label for="contact-name">Name</label>
+                    <input type="text" id="contact-name" name="name" placeholder="Max Mustermann" required>
+                  </div>
+                  <div class="field">
+                    <label for="contact-email">E-Mail</label>
+                    <input type="email" id="contact-email" name="email" placeholder="name@beispiel.de" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="contact-phone">Telefon</label>
+                    <input type="tel" id="contact-phone" name="phone" placeholder="+41 79 123 45 67">
+                  </div>
+                  <div class="field">
+                    <label for="contact-subject">Betreff</label>
+                    <select id="contact-subject" name="subject" required>
+                      <option value="" disabled selected>Bitte wählen</option>
+                      <option>Bestellung</option>
+                      <option>Probefahrt</option>
+                      <option>Finanzierung</option>
+                      <option>Reklamation</option>
+                      <option>Sonstiges</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field field-full">
+                  <label for="contact-message">Nachricht</label>
+                  <textarea id="contact-message" name="message" rows="7" placeholder="Wie können wir dir helfen?" required></textarea>
+                </div>
+                <div class="field field-full form-submit">
+                  <button type="submit" class="btn btn-primary">Nachricht senden</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="faq" id="faq">
+              <h2>Häufige Fragen</h2>
+              <details open>
+                <summary>Kann ich mein altes Auto in Zahlung geben?</summary>
+                <p>Ja. Du lädst Bilder und den Fahrzeugschein hoch. Wir senden dir in 15 Minuten einen verbindlichen Ankaufspreis — kostenlos und unverbindlich.</p>
+              </details>
+              <details>
+                <summary>Wie funktioniert die Lieferung?</summary>
+                <p>Nach Vertragsabschluss vereinbaren wir gemeinsam einen Liefertermin. Dein Audi kommt vollversichert und kostenlos direkt bis vor deine Haustür.</p>
+              </details>
+              <details>
+                <summary>Kann ich vor dem Kauf eine Probefahrt machen?</summary>
+                <p>Ja. In vielen Regionen bieten wir 24-Stunden-Probefahrten mit deinem Wunschmodell an. Einfach über das Probefahrt-Formular anfragen.</p>
+              </details>
+              <details>
+                <summary>Welche Garantie ist enthalten?</summary>
+                <p>Standardmässig sind 2 Jahre Herstellergarantie enthalten. Mit dem Garantie Plus Paket erweiterst du auf bis zu 5 Jahre — inklusive Mobilitätsservice in Europa.</p>
+              </details>
+              <details>
+                <summary>Welche Finanzierungsoptionen gibt es?</summary>
+                <p>Wir bieten Leasing ab 299 €/Monat, klassische Ratenzahlung sowie Direktkauf an. Alle Konditionen werden transparent im Checkout angezeigt und können angepasst werden.</p>
+              </details>
+              <details>
+                <summary>Wie lange dauert die Lieferung?</summary>
+                <p>Sofort verfügbare Fahrzeuge werden in 5–7 Werktagen geliefert. Bei Konfigurationsbestellungen beträgt die Lieferzeit 8–12 Wochen je nach Modell und Ausstattung.</p>
+              </details>
+              <details>
+                <summary>Sind e-tron Modelle förderberechtigt?</summary>
+                <p>Ja. Für rein elektrische e-tron Fahrzeuge können staatliche Förderungen beantragt werden. Unser Team unterstützt dich bei der Antragstellung direkt im Checkout.</p>
+              </details>
+            </div>
+          </div>
+
+          <aside>
+            <div class="contact-panel">
+              <h2>Kontakt</h2>
+              <div class="contact-items">
+                <div class="contact-item"><strong>Telefon</strong><span>+49 800 284 3367 (kostenlos)</span></div>
+                <div class="contact-item"><strong>E-Mail</strong><span>service@audi-shop.de</span></div>
+                <div class="contact-item"><strong>Live Chat</strong><span>Mo – Fr, 8 – 20 Uhr</span></div>
+                <div class="contact-item"><strong>Showroom Hubs</strong><span>Berlin · Hamburg · München · Köln</span></div>
+              </div>
+              <div class="newsletter">
+                <h3>Insider Angebote</h3>
+                <p>Exklusive Deals und neue RS-Kontingente direkt per Mail.</p>
+                <form class="nl-form" action="#" method="get">
+                  <input type="email" name="nl" placeholder="deine.mail@beispiel.de" required>
+                  <button type="submit" class="btn btn-primary">Anmelden</button>
+                </form>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg viewBox="0 0 220 54" fill="none" width="72" aria-hidden="true"><circle cx="27" cy="27" r="24" stroke="currentColor" stroke-width="3"></circle><circle cx="81" cy="27" r="24" stroke="currentColor" stroke-width="3"></circle><circle cx="135" cy="27" r="24" stroke="currentColor" stroke-width="3"></circle><circle cx="189" cy="27" r="24" stroke="currentColor" stroke-width="3"></circle></svg>
+        <span>AUDI</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="index.html">Startseite</a>
+        <a href="produkte.html">Fahrzeuge</a>
+        <a href="kontakt.html">Service</a>
+      </nav>
+      <p class="footer-motto">Vorsprung durch Technik · © 2026 Audi Motion Shop</p>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
