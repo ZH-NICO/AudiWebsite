@@ -1,6 +1,10 @@
 node_modules/
 .playwright-mcp/
 .sisyphus/
+.agents/
+.claude/
+.firebase/
+skills-lock.json
 *.log
 *.tmp
 a7-*.png

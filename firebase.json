@@ -1,0 +1,27 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "**/.*",
+      "**/node_modules/**",
+      "public/**",
+      "package.json",
+      "package-lock.json",
+      "skills-lock.json",
+      "README.md",
+      "a7-*.png",
+      ".playwright-mcp/**",
+      ".sisyphus/**",
+      ".agents/**",
+      ".vscode/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
