@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
   <header class="header">
@@ -187,39 +187,24 @@
           </div>
           <div class="category-grid">
             <article class="category-card">
-              <div class="category-card-icon" aria-hidden="true">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M8 32h32M12 32V22a2 2 0 012-2h4l3-4h8l3 4h4a2 2 0 012 2v10"/>
-                  <circle cx="16" cy="34" r="3"/><circle cx="32" cy="34" r="3"/>
-                  <path d="M19 16h10M21 12h6" opacity=".5"/>
-                </svg>
+              <div class="category-card-image" aria-hidden="true">
+                <img src="assets/images/audi-a7-01.jpg" alt="Audi A-Serie Limousine">
               </div>
               <h3>A-Serie</h3>
               <p>Sportback, Avant und Luxuslimousine für Alltag, Business und Langstrecke.</p>
               <a href="produkte.html" class="btn btn-ghost">Zur A-Serie</a>
             </article>
             <article class="category-card">
-              <div class="category-card-icon" aria-hidden="true">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M8 30h32M12 30V22l4-6h16l4 6v8"/>
-                  <circle cx="16" cy="33" r="3"/><circle cx="32" cy="33" r="3"/>
-                  <path d="M16 16h16M22 22h4" opacity=".5"/>
-                  <path d="M12 22h24"/>
-                </svg>
+              <div class="category-card-image" aria-hidden="true">
+                <img src="assets/images/audi-q8-01.jpg" alt="Audi Q-Serie SUV">
               </div>
               <h3>Q-Serie</h3>
               <p>SUV-Komfort, elektrische Reichweite und Platz für jede Lebenslage.</p>
               <a href="produkte.html" class="btn btn-ghost">Zur Q-Serie</a>
             </article>
             <article class="category-card">
-              <div class="category-card-icon" aria-hidden="true">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M8 32h32M14 32l2-10h16l2 10"/>
-                  <circle cx="16" cy="34" r="3"/><circle cx="32" cy="34" r="3"/>
-                  <path d="M18 22l1-6h10l1 6"/>
-                  <path d="M20 16l-1-4M28 16l1-4" opacity=".5"/>
-                  <path d="M24 12v-2" opacity=".5"/>
-                </svg>
+              <div class="category-card-image" aria-hidden="true">
+                <img src="assets/images/audi-rs6-01.jpg" alt="Audi RS Performance">
               </div>
               <h3>RS &amp; Sport</h3>
               <p>Ikonische Performance-Modelle mit Audi Sport DNA und maximalem Auftritt.</p>
@@ -230,8 +215,10 @@
 
         <section class="newsletter-section reveal" aria-labelledby="newsletter-title">
           <div class="newsletter newsletter-wide">
-            <h3 id="newsletter-title">Insider Angebote</h3>
-            <p>Exklusive Deals, neue RS-Kontingente und Modellneuheiten direkt per Mail.</p>
+            <div class="newsletter-text">
+              <h3 id="newsletter-title">Insider Angebote</h3>
+              <p>Exklusive Deals, neue RS-Kontingente und Modellneuheiten direkt per Mail.</p>
+            </div>
             <form class="nl-form" action="#" method="get">
               <input type="email" name="nl" placeholder="deine.mail@beispiel.de" required>
               <button type="submit" class="btn btn-primary">Anmelden</button>
@@ -262,6 +249,6 @@
     </div>
   </footer>
 
-  <script type="module" src="app.js?v=5"></script>
+  <script type="module" src="app.js?v=6"></script>
 </body>
 </html>
