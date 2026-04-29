@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <header class="header">
@@ -19,6 +19,17 @@
       <a href="produkte.html" class="nav-link">Fahrzeuge</a>
       <a href="kontakt.html" class="nav-link">Service</a>
     </nav>
+    <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menü öffnen" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="index.html" class="mobile-menu-link">Startseite</a>
+      <a href="produkte.html" class="mobile-menu-link">Fahrzeuge</a>
+      <a href="kontakt.html" class="mobile-menu-link">Service</a>
+      <a href="kontakt.html" class="mobile-menu-link mobile-menu-cta">Probefahrt anfragen</a>
+    </div>
     <a href="kontakt.html" class="header-cta">Probefahrt</a>
     <div class="account-menu">
       <button type="button" class="profile-button" id="profile-button" aria-haspopup="dialog" aria-controls="account-panel">
@@ -247,6 +258,6 @@
     </div>
   </footer>
 
-  <script type="module" src="app.js?v=4"></script>
+  <script type="module" src="app.js?v=5"></script>
 </body>
 </html>

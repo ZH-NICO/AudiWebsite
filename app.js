@@ -1,4 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js';
+document.documentElement.classList.add('js-ready');
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -279,6 +280,25 @@ cartClear.addEventListener('click', () => {
 });
 
 addCartButtons();
+
+/* ── Mobile Menu ────────────────────────────────── */
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileBtn && mobileMenu) {
+  mobileBtn.addEventListener('click', () => {
+    const isOpen = mobileBtn.getAttribute('aria-expanded') === 'true';
+    mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+    mobileMenu.setAttribute('aria-hidden', String(isOpen));
+    mobileMenu.classList.toggle('is-open', !isOpen);
+  });
+  mobileMenu.querySelectorAll('.mobile-menu-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      mobileMenu.classList.remove('is-open');
+    });
+  });
+}
 
 /* ── Scroll Reveal ────────────────────────────────── */
 const revealObserver = new IntersectionObserver((entries) => {
