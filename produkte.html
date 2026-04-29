@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audi Modelle — Audi Motion Shop</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 16'%3E%3Cg fill='none' stroke='%23000' stroke-width='2'%3E%3Ccircle cx='8' cy='8' r='7'/%3E%3Ccircle cx='24' cy='8' r='7'/%3E%3Ccircle cx='40' cy='8' r='7'/%3E%3Ccircle cx='56' cy='8' r='7'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo" aria-label="Audi Startseite">
+      <img class="audi-logo-img" src="assets/images/audi-logo.svg" alt="Audi Logo">
+    </a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="produkte.html" class="nav-link">Fahrzeuge</a>
+      <a href="kontakt.html" class="nav-link">Service</a>
+    </nav>
+    <a href="kontakt.html" class="header-cta">Probefahrt</a>
+    <div class="account-menu">
+      <button type="button" class="profile-button" id="profile-button" aria-haspopup="dialog" aria-controls="account-panel">
+        <span class="profile-avatar" aria-hidden="true">👤</span>
+        <span class="profile-label">Profil</span>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="account-panel" id="account-panel" aria-hidden="true">
+    <div class="account-backdrop" data-account-close></div>
+    <aside class="account-drawer" role="dialog" aria-modal="true" aria-labelledby="account-title">
+      <button type="button" class="account-close" data-account-close aria-label="Profil schliessen">×</button>
+      <p class="eyebrow">Mein Audi Konto</p>
+      <h2 id="account-title">Profil &amp; Warenkorb</h2>
+      <div class="auth-message" id="auth-message" role="status" aria-live="polite"></div>
+
+      <section class="auth-forms" id="auth-forms">
+        <form class="auth-form" id="login-form">
+          <h3>Anmelden</h3>
+          <label for="login-email">E-Mail</label>
+          <input type="email" id="login-email" autocomplete="email" required>
+          <label for="login-password">Passwort</label>
+          <input type="password" id="login-password" autocomplete="current-password" minlength="6" required>
+          <button type="submit" class="btn btn-primary">Einloggen</button>
+        </form>
+
+        <form class="auth-form" id="register-form">
+          <h3>Konto erstellen</h3>
+          <label for="register-name">Name</label>
+          <input type="text" id="register-name" autocomplete="name" required>
+          <label for="register-email">E-Mail</label>
+          <input type="email" id="register-email" autocomplete="email" required>
+          <label for="register-password">Passwort</label>
+          <input type="password" id="register-password" autocomplete="new-password" minlength="6" required>
+          <button type="submit" class="btn btn-ghost">Registrieren</button>
+        </form>
+      </section>
+
+      <section class="account-state" id="account-state" hidden>
+        <div class="account-card">
+          <span>Angemeldet als</span>
+          <strong id="account-name">Gast</strong>
+          <small id="account-email"></small>
+        </div>
+        <button type="button" class="btn btn-ghost" id="logout-button">Abmelden</button>
+      </section>
+
+      <section class="cart-panel" aria-labelledby="cart-title">
+        <div class="cart-panel-head">
+          <h3 id="cart-title">Warenkorb</h3>
+          <button type="button" id="cart-clear" class="cart-clear">Leeren</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-total"><span>Total</span><strong id="cart-total">0 €</strong></div>
+      </section>
+
+      <p class="auth-note">Demo-Authentifizierung für diese statische Website: Konten, Session und Warenkorb werden lokal im Browser gespeichert.</p>
+    </aside>
+  </div>
+
+  <main>
+    <section id="autos" class="page">
+      <div class="page-content">
+        <div class="page-header">
+          <p class="eyebrow">Modellübersicht 2026</p>
+          <h1>Die Audi Modellpalette</h1>
+          <p class="page-lead">Von eleganten Limousinen über sportliche SUVs bis hin zu RS-Ikonen und rein elektrischen e-tron Modellen — der vollständige Audi Showroom.</p>
+        </div>
+
+        <section class="model-family-select" aria-labelledby="model-family-title">
+          <div class="model-family-head">
+            <div>
+              <p class="eyebrow">Modellfamilien</p>
+              <h2 id="model-family-title">Wähle deine Audi Baureihe</h2>
+            </div>
+            <span>Nach links und rechts scrollen</span>
+          </div>
+
+          <div class="model-family-rail" aria-label="Audi Modellfamilien">
+            <details class="model-family-card">
+              <summary>
+                <span class="model-family-title">A3 / A4</span>
+                <img src="assets/images/audi-a3-01.jpg" alt="Audi A3 Sportback Modellfamilie" loading="lazy">
+                <span class="model-family-count">2 Modelle</span>
+                <span class="model-family-chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="model-variant-list">
+                <a href="#car-a3">A3 Sportback</a>
+                <a href="#car-a4">A4 Avant</a>
+              </div>
+            </details>
+
+            <details class="model-family-card">
+              <summary>
+                <span class="model-family-title">A5 / S5</span>
+                <img src="assets/images/audi-a5-01.jpg" alt="Audi A5 Sportback Modellfamilie" loading="lazy">
+                <span class="model-family-count">2 Modelle</span>
+                <span class="model-family-chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="model-variant-list">
+                <a href="#car-a5">A5 Sportback</a>
+                <a href="#car-s5">S5 Sportback</a>
+              </div>
+            </details>
+
+            <details class="model-family-card">
+              <summary>
+                <span class="model-family-title">A6 / RS 6</span>
+                <img src="assets/images/audi-rs6-01.jpg" alt="Audi A6 und RS 6 Avant Modellfamilie" loading="lazy">
+                <span class="model-family-count">2 Modelle</span>
+                <span class="model-family-chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="model-variant-list">
+                <a href="#car-a6">A6 Avant TFSI e</a>
+                <a href="#car-rs6">RS 6 Avant Performance</a>
+              </div>
+            </details>
+
+            <details class="model-family-card">
+              <summary>
+                <span class="model-family-title">Oberklasse</span>
+                <img src="assets/images/audi-a8-01.jpg" alt="Audi A8 L Modellfamilie" loading="lazy">
+                <span class="model-family-count">2 Modelle</span>
+                <span class="model-family-chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="model-variant-list">
+                <a href="#car-a7">A7 Sportback</a>
+                <a href="#car-a8">A8 L quattro</a>
+              </div>
+            </details>
+
+            <details class="model-family-card">
+              <summary>
+                <span class="model-family-title">Q3 / Q5</span>
+                <img src="assets/images/audi-q3-01.jpg" alt="Audi Q3 und Q5 Modellfamilie" loading="lazy">
+                <span class="model-family-count">2 Modelle</span>
+                <span class="model-family-chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="model-variant-list">
+                <a href="#car-q3">Q3 quattro</a>
+                <a href="#car-q5">Q5 TDI quattro</a>
+              </div>
+            </details>
+
+            <details class="model-family-card">
+              <summary>
+                <span class="model-family-title">Q7 / Q8 / R8</span>
+                <img src="assets/images/audi-q7-01.jpg" alt="Audi Q7 und Q8 Modellfamilie" loading="lazy">
+                <span class="model-family-count">4 Modelle</span>
+                <span class="model-family-chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="model-variant-list">
+                <a href="#car-q7">Q7 TDI quattro</a>
+                <a href="#car-q8">Q8 e-tron S line</a>
+                <a href="#car-rsq8">RS Q8 Performance</a>
+                <a href="#car-r8">R8 V10 Performance</a>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section class="showroom-tools" aria-label="Showroom Funktionen">
+          <a href="#autos" class="showroom-tool">
+            <strong>Modellvergleich</strong>
+            <span>Preise, Leistung, Reichweite und Karosserieformen direkt vergleichen.</span>
+            <small>14 Modelle · A, Q, S, RS und e-tron</small>
+          </a>
+          <a href="kontakt.html" class="showroom-tool">
+            <strong>Probefahrt-Konfigurator</strong>
+            <span>Wunschmodell, Termin, Uhrzeit und Beratungsart online auswählen.</span>
+            <small>Showroom · Video · Rückruf</small>
+          </a>
+          <a href="kontakt.html#faq" class="showroom-tool">
+            <strong>Kauf &amp; Leasing Service</strong>
+            <span>Finanzierung, Inzahlungnahme, Garantie und Lieferung transparent planen.</span>
+            <small>FAQ · Newsletter · Kontakt</small>
+          </a>
+        </section>
+      </div>
+    </section>
+
+    <section id="car-a3" class="page page-car">
+      <div class="page-content">
+        <a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a>
+        <div class="car-detail">
+          <div class="car-detail-visual car-a3-hero">
+            <div class="car-slideshow two-slide" aria-label="Audi A3 Sportback Bildergalerie">
+              <img src="assets/images/audi-a3-01.jpg" alt="Audi A3 Sportback Frontansicht" loading="eager">
+              <img src="assets/images/audi-a3-03.jpg" alt="Audi A3 Sportback Detailansicht" loading="lazy">
+            </div>
+            <div class="slide-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="car-price-tag"><span class="tag-cat">A-Serie · Sportback</span><span class="tag-price">ab 31.900 €</span></div>
+          </div>
+          <div class="car-detail-info">
+            <p class="eyebrow">Audi Automobil · 2024</p>
+            <h1>A3<br><em>Sportback</em></h1>
+            <p class="car-tagline">Kompakter Allrounder mit coupéhafter Dynamik, modernstem Cockpit und effizientem TFSI-Antrieb für den urbanen Alltag.</p>
+            <div class="specs-grid">
+              <div class="spec-item"><span>Motor</span><strong>2.0L TFSI Vierzylinder</strong></div>
+              <div class="spec-item"><span>Leistung</span><strong>204 PS / 150 kW</strong></div>
+              <div class="spec-item"><span>Drehmoment</span><strong>320 Nm</strong></div>
+              <div class="spec-item"><span>0 – 100 km/h</span><strong>6,9 Sekunden</strong></div>
+              <div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>240 km/h</strong></div>
+              <div class="spec-item"><span>Antrieb</span><strong>Vorderradantrieb</strong></div>
+              <div class="spec-item"><span>Getriebe</span><strong>7-Gang S tronic</strong></div>
+              <div class="spec-item"><span>Verbrauch</span><strong>6,5 l / 100 km</strong></div>
+              <div class="spec-item"><span>Leergewicht</span><strong>1.390 kg</strong></div>
+              <div class="spec-item"><span>Fahrzeuglänge</span><strong>4.343 mm</strong></div>
+              <div class="spec-item"><span>Hubraum</span><strong>1.984 cm³</strong></div>
+              <div class="spec-item"><span>CO₂-Emission</span><strong>147 g / km</strong></div>
+            </div>
+            <div class="features-list">
+              <h3>Serienausstattung Highlights</h3>
+              <ul>
+                <li>Audi Virtual Cockpit (10,25")</li>
+                <li>MMI Navigation Plus</li>
+                <li>LED-Scheinwerfer</li>
+                <li>Audi Pre Sense Front</li>
+                <li>Wireless Charging</li>
+                <li>Einparkhilfe hinten</li>
+                <li>Sportfahrwerk</li>
+                <li>Bluetooth &amp; Apple CarPlay</li>
+              </ul>
+            </div>
+            <div class="car-video">
+              <h3>Fahrzeugvideo</h3>
+              <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi A3 Sportback" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+            <form class="order-form" action="#" method="get">
+              <h3>Fahrzeug anfragen</h3>
+              <div class="form-row">
+                <div class="field">
+                  <label for="order-name-a3">Name</label>
+                  <input type="text" id="order-name-a3" placeholder="Max Mustermann" required>
+                </div>
+                <div class="field">
+                  <label for="order-email-a3">E-Mail</label>
+                  <input type="email" id="order-email-a3" placeholder="name@beispiel.de" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="order-phone-a3">Telefon</label>
+                  <input type="tel" id="order-phone-a3" placeholder="+41 79 123 45 67">
+                </div>
+                <div class="field">
+                  <label for="order-delivery-a3">Lieferung</label>
+                  <select id="order-delivery-a3" required>
+                    <option value="" disabled selected>Bitte wählen</option>
+                    <option>Abholung im Showroom</option>
+                    <option>Lieferung nach Hause</option>
+                    <option>Video-Beratung</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field field-full form-submit">
+                <button type="submit" class="btn btn-primary">Anfrage senden</button>
+              </div>
+            </form>
+            <div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="car-a4" class="page page-car">
+      <div class="page-content">
+        <a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a>
+        <div class="car-detail">
+          <div class="car-detail-visual car-a4-hero">
+            <div class="car-slideshow single-slide" aria-label="Audi A4 Avant Bildergalerie">
+              <img src="assets/images/audi-a4-01.jpg" alt="Audi A4 Avant Seitenansicht" loading="lazy">
+            </div>
+            <div class="car-price-tag"><span class="tag-cat">A-Serie · Avant</span><span class="tag-price">ab 47.200 €</span></div>
+          </div>
+          <div class="car-detail-info">
+            <p class="eyebrow">Audi Automobil · 2024</p>
+            <h1>A4<br><em>Avant</em></h1>
+            <p class="car-tagline">Der Inbegriff des Audi Kombis. quattro Allrad, sportliches Fahrwerk und ein Innenraum, der keine Wünsche offenlässt.</p>
+            <div class="specs-grid">
+              <div class="spec-item"><span>Motor</span><strong>2.0L TFSI Vierzylinder</strong></div>
+              <div class="spec-item"><span>Leistung</span><strong>204 PS / 150 kW</strong></div>
+              <div class="spec-item"><span>Drehmoment</span><strong>320 Nm</strong></div>
+              <div class="spec-item"><span>0 – 100 km/h</span><strong>7,3 Sekunden</strong></div>
+              <div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>237 km/h</strong></div>
+              <div class="spec-item"><span>Antrieb</span><strong>quattro Allrad</strong></div>
+              <div class="spec-item"><span>Getriebe</span><strong>7-Gang S tronic</strong></div>
+              <div class="spec-item"><span>Verbrauch</span><strong>7,2 l / 100 km</strong></div>
+              <div class="spec-item"><span>Leergewicht</span><strong>1.630 kg</strong></div>
+              <div class="spec-item"><span>Fahrzeuglänge</span><strong>4.762 mm</strong></div>
+              <div class="spec-item"><span>Kofferraum</span><strong>495 – 1.510 l</strong></div>
+              <div class="spec-item"><span>Hubraum</span><strong>1.984 cm³</strong></div>
+            </div>
+            <div class="features-list">
+              <h3>Serienausstattung Highlights</h3>
+              <ul>
+                <li>Audi Virtual Cockpit Plus</li>
+                <li>MMI Touch Navigation</li>
+                <li>Matrix-LED Scheinwerfer</li>
+                <li>Adaptive Cruise Control</li>
+                <li>Sportfahrwerk</li>
+                <li>Einparkhilfe Plus</li>
+                <li>3-Zonen Klimaautomatik</li>
+                <li>Panorama-Schiebedach</li>
+              </ul>
+            </div>
+            <div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi A4 Avant" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+            <form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-a4">Name</label><input type="text" id="order-name-a4" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-a4">E-Mail</label><input type="email" id="order-email-a4" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-a4">Telefon</label><input type="tel" id="order-phone-a4" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-a4">Lieferung</label><select id="order-delivery-a4" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form>
+            <div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="car-a5" class="page page-car">
+      <div class="page-content">
+        <a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a>
+        <div class="car-detail">
+          <div class="car-detail-visual car-a5-hero">
+            <div class="car-slideshow two-slide" aria-label="Audi A5 Sportback Bildergalerie">
+              <img src="assets/images/audi-a5-01.jpg" alt="Audi A5 Sportback Frontansicht" loading="lazy">
+              <img src="assets/images/audi-a5-02.jpg" alt="Audi A5 Sportback Seitenansicht" loading="lazy">
+            </div>
+            <div class="slide-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="car-price-tag"><span class="tag-cat">A-Serie · Sportback</span><span class="tag-price">ab 49.800 €</span></div>
+          </div>
+          <div class="car-detail-info">
+            <p class="eyebrow">Audi Automobil · 2024</p>
+            <h1>A5<br><em>Sportback</em></h1>
+            <p class="car-tagline">Die coupéhafte Sportlimousine. Elegante Linienführung, kraftvoller TFSI und sportliche Fahrkultur in einem Fahrzeug.</p>
+            <div class="specs-grid">
+              <div class="spec-item"><span>Motor</span><strong>2.0L TFSI Vierzylinder</strong></div>
+              <div class="spec-item"><span>Leistung</span><strong>245 PS / 180 kW</strong></div>
+              <div class="spec-item"><span>Drehmoment</span><strong>370 Nm</strong></div>
+              <div class="spec-item"><span>0 – 100 km/h</span><strong>6,3 Sekunden</strong></div>
+              <div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>250 km/h</strong></div>
+              <div class="spec-item"><span>Antrieb</span><strong>quattro Allrad</strong></div>
+              <div class="spec-item"><span>Getriebe</span><strong>7-Gang S tronic</strong></div>
+              <div class="spec-item"><span>Verbrauch</span><strong>7,8 l / 100 km</strong></div>
+              <div class="spec-item"><span>Leergewicht</span><strong>1.640 kg</strong></div>
+              <div class="spec-item"><span>Fahrzeuglänge</span><strong>4.726 mm</strong></div>
+              <div class="spec-item"><span>Hubraum</span><strong>1.984 cm³</strong></div>
+              <div class="spec-item"><span>CO₂-Emission</span><strong>177 g / km</strong></div>
+            </div>
+            <div class="features-list"><h3>Serienausstattung Highlights</h3><ul><li>Audi Virtual Cockpit Plus</li><li>MMI Navigation Plus</li><li>Matrix-LED Scheinwerfer</li><li>Sport Fahrwerk</li><li>18 Zoll Alufelgen</li><li>Sportlenkrad</li><li>Panorama-Schiebedach</li><li>Adaptive Cruise Control</li></ul></div>
+            <div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi A5 Sportback" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+            <form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-a5">Name</label><input type="text" id="order-name-a5" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-a5">E-Mail</label><input type="email" id="order-email-a5" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-a5">Telefon</label><input type="tel" id="order-phone-a5" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-a5">Lieferung</label><select id="order-delivery-a5" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form>
+            <div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="car-a6" class="page page-car">
+      <div class="page-content">
+        <a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a>
+        <div class="car-detail">
+          <div class="car-detail-visual car-a6-hero">
+            <div class="car-slideshow two-slide" aria-label="Audi A6 Avant TFSI e Bildergalerie">
+              <img src="assets/images/audi-a6-avant-02.jpg" alt="Audi A6 Avant TFSI e Seitenansicht" loading="lazy">
+              <img src="assets/images/audi-a6-01.jpg" alt="Audi A6 Avant TFSI e Detailansicht" loading="lazy">
+            </div>
+            <div class="slide-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="car-price-tag"><span class="tag-cat">Plug-in Hybrid</span><span class="tag-price">ab 68.100 €</span></div>
+          </div>
+          <div class="car-detail-info">
+            <p class="eyebrow">Audi Premium · 2024</p>
+            <h1>A6 Avant<br><em>TFSI e</em></h1>
+            <p class="car-tagline">Effizienz und Komfort auf höchstem Niveau. Plug-in-Hybrid mit elektrischer Reichweite und der Langstreckenstärke eines Avant.</p>
+            <div class="specs-grid"><div class="spec-item"><span>Motor</span><strong>2.0L TFSI + Elektromotor</strong></div><div class="spec-item"><span>Systemleistung</span><strong>299 PS / 220 kW</strong></div><div class="spec-item"><span>Drehmoment</span><strong>450 Nm</strong></div><div class="spec-item"><span>0 – 100 km/h</span><strong>6,2 Sekunden</strong></div><div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>250 km/h</strong></div><div class="spec-item"><span>EV-Reichweite (WLTP)</span><strong>67 km</strong></div><div class="spec-item"><span>Antrieb</span><strong>quattro Allrad</strong></div><div class="spec-item"><span>Getriebe</span><strong>7-Gang S tronic</strong></div><div class="spec-item"><span>Verbrauch (WLTP)</span><strong>2,4 l / 100 km</strong></div><div class="spec-item"><span>Leergewicht</span><strong>1.985 kg</strong></div><div class="spec-item"><span>Fahrzeuglänge</span><strong>4.939 mm</strong></div><div class="spec-item"><span>Hochvoltbatterie</span><strong>17,9 kWh</strong></div></div>
+            <div class="features-list"><h3>Serienausstattung Highlights</h3><ul><li>Audi Virtual Cockpit Plus (12,3")</li><li>MMI Navigation Plus mit Touch</li><li>Komfortsitze elektrisch</li><li>LED-Matrix Scheinwerfer</li><li>Adaptive Cruise Assist</li><li>Wireless Charging Pad</li><li>Panorama-Schiebedach</li><li>3-Zonen Klimaautomatik</li></ul></div>
+            <div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi A6 Avant TFSI e" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+            <form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-a6">Name</label><input type="text" id="order-name-a6" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-a6">E-Mail</label><input type="email" id="order-email-a6" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-a6">Telefon</label><input type="tel" id="order-phone-a6" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-a6">Lieferung</label><select id="order-delivery-a6" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form>
+            <div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="car-a7" class="page page-car">
+      <div class="page-content"><a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a><div class="car-detail"><div class="car-detail-visual car-a7-hero"><div class="car-slideshow single-slide" aria-label="Audi A7 Sportback Bildergalerie"><img src="assets/images/audi-a7-01.jpg" alt="Audi A7 Sportback Seitenansicht" loading="lazy"></div><div class="car-price-tag"><span class="tag-cat">A-Serie · Gran Turismo</span><span class="tag-price">ab 75.900 €</span></div></div><div class="car-detail-info"><p class="eyebrow">Audi Premium · 2024</p><h1>A7<br><em>Sportback</em></h1><p class="car-tagline">Gran Turismo trifft Technikführerschaft. Das eleganteste Profil der A-Serie — mit mild-hybridem V6 und quattro Allrad.</p><div class="specs-grid"><div class="spec-item"><span>Motor</span><strong>3.0L V6 TFSI Mild-Hybrid</strong></div><div class="spec-item"><span>Leistung</span><strong>340 PS / 250 kW</strong></div><div class="spec-item"><span>Drehmoment</span><strong>500 Nm</strong></div><div class="spec-item"><span>0 – 100 km/h</span><strong>5,3 Sekunden</strong></div><div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>250 km/h</strong></div><div class="spec-item"><span>Antrieb</span><strong>quattro Allrad</strong></div><div class="spec-item"><span>Getriebe</span><strong>7-Gang S tronic</strong></div><div class="spec-item"><span>Verbrauch</span><strong>9,3 l / 100 km</strong></div><div class="spec-item"><span>Leergewicht</span><strong>1.890 kg</strong></div><div class="spec-item"><span>Fahrzeuglänge</span><strong>4.969 mm</strong></div><div class="spec-item"><span>Hubraum</span><strong>2.995 cm³</strong></div><div class="spec-item"><span>48V Mild-Hybrid</span><strong>Ja · 12 kW Boost</strong></div></div><div class="features-list"><h3>Serienausstattung Highlights</h3><ul><li>Audi Virtual Cockpit Plus (12,3")</li><li>MMI Navigation Plus</li><li>HD-Matrix LED Scheinwerfer</li><li>Head-up Display</li><li>Komfortsitze elektrisch</li><li>Panorama-Glasdach</li><li>Adaptive Cruise Assist</li><li>Bang &amp; Olufsen Sound</li></ul></div><div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi A7 Sportback" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-a7">Name</label><input type="text" id="order-name-a7" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-a7">E-Mail</label><input type="email" id="order-email-a7" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-a7">Telefon</label><input type="tel" id="order-phone-a7" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-a7">Lieferung</label><select id="order-delivery-a7" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form><div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div></div></div></div>
+    </section>
+
+    <section id="car-a8" class="page page-car">
+      <div class="page-content"><a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a><div class="car-detail"><div class="car-detail-visual car-a8-hero"><div class="car-slideshow single-slide" aria-label="Audi A8 L Bildergalerie"><img src="assets/images/audi-a8-01.jpg" alt="Audi A8 L Frontansicht" loading="lazy"></div><div class="car-price-tag"><span class="tag-cat">Flaggschiff-Limousine</span><span class="tag-price">ab 94.700 €</span></div></div><div class="car-detail-info"><p class="eyebrow">Audi Flagship · 2024</p><h1>A8 L<br><em>quattro</em></h1><p class="car-tagline">Das Nonplusultra der Audi Welt. Adaptives Fahrwerk, autonome Fahrassistenzsysteme und ein Innenraum auf Yachtniveau.</p><div class="specs-grid"><div class="spec-item"><span>Motor</span><strong>4.0L V8 Biturbo TFSI</strong></div><div class="spec-item"><span>Leistung</span><strong>460 PS / 338 kW</strong></div><div class="spec-item"><span>Drehmoment</span><strong>660 Nm</strong></div><div class="spec-item"><span>0 – 100 km/h</span><strong>4,1 Sekunden</strong></div><div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>250 km/h</strong></div><div class="spec-item"><span>Antrieb</span><strong>quattro Allrad</strong></div><div class="spec-item"><span>Getriebe</span><strong>8-Gang Tiptronic</strong></div><div class="spec-item"><span>Verbrauch</span><strong>10,7 l / 100 km</strong></div><div class="spec-item"><span>Leergewicht</span><strong>2.115 kg</strong></div><div class="spec-item"><span>Fahrzeuglänge</span><strong>5.302 mm (L)</strong></div><div class="spec-item"><span>Hubraum</span><strong>3.996 cm³</strong></div><div class="spec-item"><span>48V Mild-Hybrid</span><strong>Ja · mit Coasting</strong></div></div><div class="features-list"><h3>Serienausstattung Highlights</h3><ul><li>Audi Rear Seat Entertainment</li><li>Pneumatisches Massagesystem</li><li>HD Matrix LED Laserlicht</li><li>Head-up Display</li><li>Adaptives Luftfahrwerk Pro</li><li>All-wheel Steering</li><li>Bang &amp; Olufsen Advanced (23 Lautsprecher)</li><li>Autonomes Fahren Level 3</li></ul></div><div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi A8 L quattro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-a8">Name</label><input type="text" id="order-name-a8" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-a8">E-Mail</label><input type="email" id="order-email-a8" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-a8">Telefon</label><input type="tel" id="order-phone-a8" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-a8">Lieferung</label><select id="order-delivery-a8" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form><div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div></div></div></div>
+    </section>
+
+    <section id="car-q3" class="page page-car">
+      <div class="page-content"><a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a><div class="car-detail"><div class="car-detail-visual car-q3-hero"><div class="car-slideshow" aria-label="Audi Q3 Bildergalerie"><img src="assets/images/audi-q3-01.jpg" alt="Audi Q3 Frontansicht" loading="lazy"><img src="assets/images/audi-q3-02.jpg" alt="Audi Q3 Seitenansicht" loading="lazy"><img src="assets/images/audi-q3-03.jpg" alt="Audi Q3 Detailansicht" loading="lazy"></div><div class="slide-dots" aria-hidden="true"><span></span><span></span><span></span></div><div class="car-price-tag"><span class="tag-cat">Q-Serie · Kompakt-SUV</span><span class="tag-price">ab 39.200 €</span></div></div><div class="car-detail-info"><p class="eyebrow">Audi SUV · 2024</p><h1>Q3<br><em>quattro</em></h1><p class="car-tagline">Das urbane SUV mit Stil. Kompakte Masse, souveräne Fahrkultur und das gesamte Audi Technologieangebot in einem wendigen Format.</p><div class="specs-grid"><div class="spec-item"><span>Motor</span><strong>2.0L TDI Diesel</strong></div><div class="spec-item"><span>Leistung</span><strong>150 PS / 110 kW</strong></div><div class="spec-item"><span>Drehmoment</span><strong>340 Nm</strong></div><div class="spec-item"><span>0 – 100 km/h</span><strong>9,2 Sekunden</strong></div><div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>205 km/h</strong></div><div class="spec-item"><span>Antrieb</span><strong>quattro Allrad</strong></div><div class="spec-item"><span>Getriebe</span><strong>7-Gang S tronic</strong></div><div class="spec-item"><span>Verbrauch</span><strong>5,8 l / 100 km</strong></div><div class="spec-item"><span>Leergewicht</span><strong>1.545 kg</strong></div><div class="spec-item"><span>Fahrzeuglänge</span><strong>4.484 mm</strong></div><div class="spec-item"><span>Kofferraum</span><strong>530 – 1.525 l</strong></div><div class="spec-item"><span>CO₂-Emission</span><strong>153 g / km</strong></div></div><div class="features-list"><h3>Serienausstattung Highlights</h3><ul><li>Audi Virtual Cockpit</li><li>MMI Navigation Plus</li><li>LED-Scheinwerfer</li><li>Einparkhilfe Plus</li><li>Audi Pre Sense City</li><li>Klimaautomatik</li><li>Apple CarPlay / Android Auto</li><li>Dachschienen</li></ul></div><div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi Q3 quattro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-q3">Name</label><input type="text" id="order-name-q3" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-q3">E-Mail</label><input type="email" id="order-email-q3" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-q3">Telefon</label><input type="tel" id="order-phone-q3" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-q3">Lieferung</label><select id="order-delivery-q3" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form><div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div></div></div></div>
+    </section>
+
+    <section id="car-q5" class="page page-car">
+      <div class="page-content"><a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a><div class="car-detail"><div class="car-detail-visual car-q5-hero"><div class="car-slideshow two-slide" aria-label="Audi Q5 TDI quattro Bildergalerie"><img src="assets/images/audi-q5-01.jpg" alt="Audi Q5 Frontansicht" loading="lazy"><img src="assets/images/audi-q5-02.jpg" alt="Audi Q5 Seitenansicht" loading="lazy"></div><div class="slide-dots" aria-hidden="true"><span></span><span></span><span></span></div><div class="car-price-tag"><span class="tag-cat">Premium SUV</span><span class="tag-price">ab 62.900 €</span></div></div><div class="car-detail-info"><p class="eyebrow">Audi SUV · 2024</p><h1>Q5<br><em>TDI quattro</em></h1><p class="car-tagline">Vielseitig, effizient, komfortabel. Der quattro Allrad macht den Q5 zum perfekten Begleiter für Stadt und Langstrecke.</p><div class="specs-grid"><div class="spec-item"><span>Motor</span><strong>2.0L TDI Diesel</strong></div><div class="spec-item"><span>Leistung</span><strong>204 PS / 150 kW</strong></div><div class="spec-item"><span>Drehmoment</span><strong>400 Nm</strong></div><div class="spec-item"><span>0 – 100 km/h</span><strong>7,5 Sekunden</strong></div><div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>222 km/h</strong></div><div class="spec-item"><span>Antrieb</span><strong>quattro Allrad</strong></div><div class="spec-item"><span>Getriebe</span><strong>7-Gang S tronic</strong></div><div class="spec-item"><span>Verbrauch</span><strong>7,0 l / 100 km</strong></div><div class="spec-item"><span>Leergewicht</span><strong>1.760 kg</strong></div><div class="spec-item"><span>Fahrzeuglänge</span><strong>4.680 mm</strong></div><div class="spec-item"><span>Kofferraum</span><strong>550 – 1.550 l</strong></div><div class="spec-item"><span>Anhängelast</span><strong>2.400 kg</strong></div></div><div class="features-list"><h3>Serienausstattung Highlights</h3><ul><li>Audi Virtual Cockpit (10,25")</li><li>Panorama-Schiebedach</li><li>Matrix-LED Scheinwerfer</li><li>MMI Navigation Plus</li><li>18 Zoll Alufelgen</li><li>Komfortsitze</li><li>Einparkhilfe Plus mit Kamera</li><li>Adaptive Cruise Control</li></ul></div><div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi Q5 TDI quattro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-q5">Name</label><input type="text" id="order-name-q5" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-q5">E-Mail</label><input type="email" id="order-email-q5" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-q5">Telefon</label><input type="tel" id="order-phone-q5" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-q5">Lieferung</label><select id="order-delivery-q5" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form><div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div></div></div></div>
+    </section>
+
+    <section id="car-q7" class="page page-car">
+      <div class="page-content"><a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a><div class="car-detail"><div class="car-detail-visual car-q7-hero"><div class="car-slideshow two-slide" aria-label="Audi Q7 Bildergalerie"><img src="assets/images/audi-q7-01.jpg" alt="Audi Q7 Frontansicht" loading="lazy"><img src="assets/images/audi-q7-02.jpg" alt="Audi Q7 Seitenansicht" loading="lazy"></div><div class="slide-dots" aria-hidden="true"><span></span><span></span><span></span></div><div class="car-price-tag"><span class="tag-cat">Q-Serie · 7-Sitzer</span><span class="tag-price">ab 74.500 €</span></div></div><div class="car-detail-info"><p class="eyebrow">Audi SUV · 2024</p><h1>Q7<br><em>TDI quattro</em></h1><p class="car-tagline">Grosszügiger Siebensitzer mit souveräner Fahrkultur, komfortablem Luftfahrwerk und dem bewährten quattro Allrad.</p><div class="specs-grid"><div class="spec-item"><span>Motor</span><strong>3.0L V6 TDI Diesel</strong></div><div class="spec-item"><span>Leistung</span><strong>231 PS / 170 kW</strong></div><div class="spec-item"><span>Drehmoment</span><strong>600 Nm</strong></div><div class="spec-item"><span>0 – 100 km/h</span><strong>7,1 Sekunden</strong></div><div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>222 km/h</strong></div><div class="spec-item"><span>Antrieb</span><strong>quattro Allrad</strong></div><div class="spec-item"><span>Getriebe</span><strong>8-Gang Tiptronic</strong></div><div class="spec-item"><span>Verbrauch</span><strong>7,3 l / 100 km</strong></div><div class="spec-item"><span>Leergewicht</span><strong>2.195 kg</strong></div><div class="spec-item"><span>Fahrzeuglänge</span><strong>5.063 mm</strong></div><div class="spec-item"><span>Kofferraum</span><strong>295 – 1.955 l</strong></div><div class="spec-item"><span>Sitzplätze</span><strong>7 Personen</strong></div></div><div class="features-list"><h3>Serienausstattung Highlights</h3><ul><li>Adaptives Luftfahrwerk</li><li>Audi Virtual Cockpit Plus</li><li>3. Sitzreihe klappbar</li><li>Matrix-LED Scheinwerfer</li><li>Head-up Display</li><li>3-Zonen Klimaautomatik</li><li>Panorama-Glasdach</li><li>Anhängerkupplung elektr.</li></ul></div><div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi Q7 TDI quattro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-q7">Name</label><input type="text" id="order-name-q7" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-q7">E-Mail</label><input type="email" id="order-email-q7" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-q7">Telefon</label><input type="tel" id="order-phone-q7" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-q7">Lieferung</label><select id="order-delivery-q7" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form><div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div></div></div></div>
+    </section>
+
+    <section id="car-q8" class="page page-car">
+      <div class="page-content"><a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a><div class="car-detail"><div class="car-detail-visual car-q8-hero"><div class="car-slideshow single-slide" aria-label="Audi Q8 e-tron S line Bildergalerie"><img src="assets/images/audi-q8-01.jpg" alt="Audi Q8 e-tron Seitenansicht" loading="lazy"></div><div class="car-price-tag"><span class="tag-cat">e-tron Elektrisch</span><span class="tag-price">ab 89.900 €</span></div></div><div class="car-detail-info"><p class="eyebrow">Audi e-tron · 2024</p><h1>Q8 e-tron<br><em>S line</em></h1><p class="car-tagline">Premium SUV. Elektrisch. Kraftvoll. Nachhaltig. Mit bis zu 600 km Reichweite und quattro electric.</p><div class="specs-grid"><div class="spec-item"><span>Antrieb</span><strong>Dual-Motor Elektrisch</strong></div><div class="spec-item"><span>Systemleistung</span><strong>408 PS / 300 kW</strong></div><div class="spec-item"><span>Drehmoment</span><strong>664 Nm</strong></div><div class="spec-item"><span>0 – 100 km/h</span><strong>5,6 Sekunden</strong></div><div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>200 km/h</strong></div><div class="spec-item"><span>Reichweite (WLTP)</span><strong>600 km</strong></div><div class="spec-item"><span>Batterie (brutto)</span><strong>114 kWh</strong></div><div class="spec-item"><span>DC-Schnellladen</span><strong>170 kW</strong></div><div class="spec-item"><span>AC-Laden</span><strong>22 kW</strong></div><div class="spec-item"><span>Verbrauch (WLTP)</span><strong>24,3 kWh / 100 km</strong></div><div class="spec-item"><span>Leergewicht</span><strong>2.585 kg</strong></div><div class="spec-item"><span>Antriebssystem</span><strong>quattro electric</strong></div></div><div class="features-list"><h3>Serienausstattung Highlights</h3><ul><li>Panorama-Glasdach elektrisch</li><li>Matrix-LED Scheinwerfer</li><li>Audi Virtual Cockpit Plus</li><li>Head-up Display</li><li>Wärmepumpe für mehr Reichweite</li><li>Adaptives Fahrwerk</li><li>Bang &amp; Olufsen Soundsystem</li><li>Wireless Charging Pad</li></ul></div><div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi Q8 e-tron S line" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-q8">Name</label><input type="text" id="order-name-q8" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-q8">E-Mail</label><input type="email" id="order-email-q8" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-q8">Telefon</label><input type="tel" id="order-phone-q8" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-q8">Lieferung</label><select id="order-delivery-q8" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form><div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div></div></div></div>
+    </section>
+
+    <section id="car-s5" class="page page-car">
+      <div class="page-content"><a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a><div class="car-detail"><div class="car-detail-visual car-s5-hero"><div class="car-slideshow single-slide" aria-label="Audi S5 Sportback Bildergalerie"><img src="assets/images/audi-s5-01.jpg" alt="Audi S5 Sportback Frontansicht" loading="lazy"></div><div class="car-price-tag"><span class="tag-cat">S Performance</span><span class="tag-price">ab 73.490 €</span></div></div><div class="car-detail-info"><p class="eyebrow">Audi Sport · 2024</p><h1>S5<br><em>Sportback</em></h1><p class="car-tagline">Eleganz trifft Leistung. Der V6 Biturbo verwandelt jeden Weg in ein Erlebnis — mit quattro Allrad und 8-Gang Tiptronic.</p><div class="specs-grid"><div class="spec-item"><span>Motor</span><strong>3.0L V6 Biturbo TFSI</strong></div><div class="spec-item"><span>Leistung</span><strong>367 PS / 270 kW</strong></div><div class="spec-item"><span>Drehmoment</span><strong>500 Nm</strong></div><div class="spec-item"><span>0 – 100 km/h</span><strong>4,5 Sekunden</strong></div><div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>250 km/h</strong></div><div class="spec-item"><span>Antrieb</span><strong>quattro Allrad</strong></div><div class="spec-item"><span>Getriebe</span><strong>8-Gang Tiptronic</strong></div><div class="spec-item"><span>Verbrauch</span><strong>9,8 l / 100 km</strong></div><div class="spec-item"><span>Leergewicht</span><strong>1.820 kg</strong></div><div class="spec-item"><span>Fahrzeuglänge</span><strong>4.762 mm</strong></div><div class="spec-item"><span>Hubraum</span><strong>2.995 cm³</strong></div><div class="spec-item"><span>CO₂-Emission</span><strong>225 g / km</strong></div></div><div class="features-list"><h3>Serienausstattung Highlights</h3><ul><li>S Sport Abgasanlage</li><li>19 Zoll S Alufelgen</li><li>S Sportlenkrad in Leder</li><li>Audi Virtual Cockpit</li><li>LED-Matrix Scheinwerfer</li><li>Sport Fahrwerk</li><li>MMI Navigation Plus</li><li>Alcantara-Dachhimmel</li></ul></div><div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi S5 Sportback" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-s5">Name</label><input type="text" id="order-name-s5" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-s5">E-Mail</label><input type="email" id="order-email-s5" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-s5">Telefon</label><input type="tel" id="order-phone-s5" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-s5">Lieferung</label><select id="order-delivery-s5" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form><div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div></div></div></div>
+    </section>
+
+    <section id="car-rsq8" class="page page-car">
+      <div class="page-content"><a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a><div class="car-detail"><div class="car-detail-visual car-rsq8-hero"><div class="car-slideshow single-slide" aria-label="Audi RS Q8 Bildergalerie"><img src="assets/images/audi-rsq8-01.jpg" alt="Audi RS Q8 Seitenansicht" loading="lazy"></div><div class="car-price-tag"><span class="tag-cat">RS Performance SUV</span><span class="tag-price">ab 135.000 €</span></div></div><div class="car-detail-info"><p class="eyebrow">Audi Sport GmbH · 2024</p><h1>RS Q8<br><em>Performance</em></h1><p class="car-tagline">Die schärfste Interpretation des Q8. V8 Biturbo mit 600 PS, adaptive Luftfederung und eine Fahrleistung, die SUV-Massstäbe neu definiert.</p><div class="specs-grid"><div class="spec-item"><span>Motor</span><strong>4.0L V8 Biturbo TFSI</strong></div><div class="spec-item"><span>Leistung</span><strong>600 PS / 441 kW</strong></div><div class="spec-item"><span>Drehmoment</span><strong>800 Nm</strong></div><div class="spec-item"><span>0 – 100 km/h</span><strong>3,8 Sekunden</strong></div><div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>305 km/h</strong></div><div class="spec-item"><span>Antrieb</span><strong>quattro Allrad</strong></div><div class="spec-item"><span>Getriebe</span><strong>8-Gang Tiptronic</strong></div><div class="spec-item"><span>Verbrauch</span><strong>12,8 l / 100 km</strong></div><div class="spec-item"><span>Leergewicht</span><strong>2.330 kg</strong></div><div class="spec-item"><span>Fahrzeuglänge</span><strong>5.002 mm</strong></div><div class="spec-item"><span>Hubraum</span><strong>3.996 cm³</strong></div><div class="spec-item"><span>48V Mild-Hybrid</span><strong>Ja · elektrischer Verdichter</strong></div></div><div class="features-list"><h3>Serienausstattung Highlights</h3><ul><li>RS Adaptives Luftfahrwerk</li><li>RS Sport Abgasanlage</li><li>Carbon Exterieur-Paket</li><li>23 Zoll RS Schmiedefelgen</li><li>RS Keramik-Bremsanlage</li><li>Night Vision Assistent</li><li>RS Sportlenkrad Carbon</li><li>Bang &amp; Olufsen 3D Sound</li></ul></div><div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi RS Q8 Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-rsq8">Name</label><input type="text" id="order-name-rsq8" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-rsq8">E-Mail</label><input type="email" id="order-email-rsq8" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-rsq8">Telefon</label><input type="tel" id="order-phone-rsq8" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-rsq8">Lieferung</label><select id="order-delivery-rsq8" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form><div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div></div></div></div>
+    </section>
+
+    <section id="car-rs6" class="page page-car">
+      <div class="page-content"><a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a><div class="car-detail"><div class="car-detail-visual car-rs6-hero"><div class="car-slideshow" aria-label="Audi RS 6 Avant Performance Bildergalerie"><img src="assets/images/audi-rs6-01.jpg" alt="Audi RS 6 Avant Performance Exterieur" loading="eager"><img src="assets/images/audi-rs6-02.jpg" alt="Audi RS 6 Avant Performance und RS 7 Sportback" loading="lazy"><img src="assets/images/audi-rs6-03.jpg" alt="Audi RS 6 Avant Performance Interieur" loading="lazy"></div><div class="slide-dots" aria-hidden="true"><span></span><span></span><span></span></div><div class="car-price-tag"><span class="tag-cat">RS Performance</span><span class="tag-price">ab 139.900 €</span></div></div><div class="car-detail-info"><p class="eyebrow">Audi Sport GmbH · 2024</p><h1>RS 6 Avant<br><em>Performance</em></h1><p class="car-tagline">Der Sportwagen unter den Kombis. 630 PS, quattro Allrad und ein V8 Biturbo, der keine Wünsche offenlässt.</p><div class="specs-grid"><div class="spec-item"><span>Motor</span><strong>4.0L V8 Biturbo TFSI</strong></div><div class="spec-item"><span>Leistung</span><strong>630 PS / 463 kW</strong></div><div class="spec-item"><span>Drehmoment</span><strong>850 Nm</strong></div><div class="spec-item"><span>0 – 100 km/h</span><strong>3,4 Sekunden</strong></div><div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>305 km/h</strong></div><div class="spec-item"><span>Antrieb</span><strong>quattro Allrad</strong></div><div class="spec-item"><span>Getriebe</span><strong>8-Gang Tiptronic</strong></div><div class="spec-item"><span>Verbrauch</span><strong>11,9 l / 100 km</strong></div><div class="spec-item"><span>Leergewicht</span><strong>2.135 kg</strong></div><div class="spec-item"><span>Fahrzeuglänge</span><strong>5.004 mm</strong></div><div class="spec-item"><span>Hubraum</span><strong>3.996 cm³</strong></div><div class="spec-item"><span>Zylinder</span><strong>8 · V-Anordnung</strong></div></div><div class="features-list"><h3>Serienausstattung Highlights</h3><ul><li>RS Sport Abgasanlage mit Klappensteuerung</li><li>Adaptives Luftfahrwerk mit Niveauregulierung</li><li>RS Sportlenkrad in Leder / Carbon</li><li>Audi Virtual Cockpit Plus (12,3")</li><li>Matrix-LED Scheinwerfer</li><li>Head-up Display</li><li>Bang &amp; Olufsen 3D Sound (1.455 W)</li><li>Night Vision Assistent</li></ul></div><div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi RS 6 Avant Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-rs6">Name</label><input type="text" id="order-name-rs6" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-rs6">E-Mail</label><input type="email" id="order-email-rs6" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-rs6">Telefon</label><input type="tel" id="order-phone-rs6" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-rs6">Lieferung</label><select id="order-delivery-rs6" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form><div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div></div></div></div>
+    </section>
+
+    <section id="car-r8" class="page page-car">
+      <div class="page-content"><a href="#autos" class="back-btn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>Zurück</a><div class="car-detail"><div class="car-detail-visual car-r8-hero"><div class="car-slideshow single-slide" aria-label="Audi R8 V10 Performance Bildergalerie"><img src="assets/images/audi-r8-01.jpg" alt="Audi R8 Performance Seitenansicht" loading="lazy"></div><div class="car-price-tag"><span class="tag-cat">Supersportwagen</span><span class="tag-price">ab 187.500 €</span></div></div><div class="car-detail-info"><p class="eyebrow">Audi Sport GmbH · 2023</p><h1>R8 V10<br><em>Performance</em></h1><p class="car-tagline">Der letzte natürlich gesaugte V10. 331 km/h. Reines Fahrerlebnis ohne Kompromisse — eine Legende.</p><div class="specs-grid"><div class="spec-item"><span>Motor</span><strong>5.2L V10 FSI Saugmotor</strong></div><div class="spec-item"><span>Leistung</span><strong>620 PS / 456 kW</strong></div><div class="spec-item"><span>Drehmoment</span><strong>580 Nm bei 6.500 rpm</strong></div><div class="spec-item"><span>0 – 100 km/h</span><strong>3,1 Sekunden</strong></div><div class="spec-item"><span>Höchstgeschwindigkeit</span><strong>331 km/h</strong></div><div class="spec-item"><span>Antrieb</span><strong>quattro Allrad</strong></div><div class="spec-item"><span>Getriebe</span><strong>7-Gang S tronic</strong></div><div class="spec-item"><span>Verbrauch</span><strong>13,5 l / 100 km</strong></div><div class="spec-item"><span>Leergewicht</span><strong>1.620 kg</strong></div><div class="spec-item"><span>Fahrzeuglänge</span><strong>4.428 mm</strong></div><div class="spec-item"><span>Hubraum</span><strong>5.204 cm³</strong></div><div class="spec-item"><span>Zylinder</span><strong>10 · V · Mittelmotor</strong></div></div><div class="features-list"><h3>Serienausstattung Highlights</h3><ul><li>Keramik-Verbundbremsanlage</li><li>Carbon Exterieur-Paket</li><li>Laser-LED Scheinwerfer</li><li>Sport Abgasanlage mit Sidepipes</li><li>Magnetic Ride Fahrwerk</li><li>RS Schalensitze in Carbon</li><li>20 Zoll RS Schmiedefelgen</li><li>Audi Drive Select (7 Modi)</li></ul></div><div class="car-video"><h3>Fahrzeugvideo</h3><div class="video-wrap"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Audi R8 V10 Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><form class="order-form" action="#" method="get"><h3>Fahrzeug anfragen</h3><div class="form-row"><div class="field"><label for="order-name-r8">Name</label><input type="text" id="order-name-r8" placeholder="Max Mustermann" required></div><div class="field"><label for="order-email-r8">E-Mail</label><input type="email" id="order-email-r8" placeholder="name@beispiel.de" required></div></div><div class="form-row"><div class="field"><label for="order-phone-r8">Telefon</label><input type="tel" id="order-phone-r8" placeholder="+41 79 123 45 67"></div><div class="field"><label for="order-delivery-r8">Lieferung</label><select id="order-delivery-r8" required><option value="" disabled selected>Bitte wählen</option><option>Abholung im Showroom</option><option>Lieferung nach Hause</option><option>Video-Beratung</option></select></div></div><div class="field field-full form-submit"><button type="submit" class="btn btn-primary">Anfrage senden</button></div></form><div class="car-cta"><a href="kontakt.html" class="btn btn-primary">Probefahrt anfragen</a><a href="#autos" class="btn btn-ghost">Andere Modelle</a></div></div></div></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg viewBox="0 0 220 54" fill="none" width="72" aria-hidden="true"><circle cx="27" cy="27" r="24" stroke="currentColor" stroke-width="3"></circle><circle cx="81" cy="27" r="24" stroke="currentColor" stroke-width="3"></circle><circle cx="135" cy="27" r="24" stroke="currentColor" stroke-width="3"></circle><circle cx="189" cy="27" r="24" stroke="currentColor" stroke-width="3"></circle></svg>
+        <span>AUDI</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="index.html">Startseite</a>
+        <a href="produkte.html#autos">Fahrzeuge</a>
+        <a href="kontakt.html">Service</a>
+      </nav>
+      <p class="footer-motto">Vorsprung durch Technik · © 2026 Audi Motion Shop</p>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
